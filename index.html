@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Character</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      line-height: 1.5;
+      color: #e6e6e6;
+      background: #1e1f26;
+    }
+
+    h1 { margin-bottom: 0; }
+
+    .subtitle { color: #999; margin-top: 5px; }
+
+    #game {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #2a2b33;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #999;
+    }
+
+    #unity-canvas { width: 100%; height: 100%; }
+
+    footer {
+      margin-top: 40px;
+      padding-top: 10px;
+      border-top: 1px solid #3a3b44;
+      color: #999;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Character</h1>
+  <p class="subtitle">An interactive 3D buddy by Xavier Kendall</p>
+
+  <div id="game">
+    <p>Coming soon</p>
+  </div>
+
+  <h2>Controls</h2>
+  <ul>
+    <li>Click and hold a cube to pick it up</li>
+    <li>Move the mouse to drag it around</li>
+    <li>Let go to throw it</li>
+  </ul>
+
+  <h2>About</h2>
+  <p></p>
+
+  <h2>Privacy</h2>
+  <p>
+    Any pictures or webcam photos you use stay in your browser.
+    They are not uploaded or saved anywhere.
+  </p>
+
+  <footer>
+    Xavier Kendall · Final Year Project · Supervisor: Richard Ellis
+  </footer>
+
+  <script src="Build/Character.loader.js"></script>
+  <script>
+    if (window.createUnityInstance) {
+      document.getElementById("game").innerHTML = '<canvas id="unity-canvas"></canvas>';
+      createUnityInstance(document.getElementById("unity-canvas"), {
+        dataUrl: "Build/Character.data",
+        frameworkUrl: "Build/Character.framework.js",
+        codeUrl: "Build/Character.wasm",
+      });
+    }
+  </script>
+
+</body>
+</html>
